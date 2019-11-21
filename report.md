@@ -53,6 +53,19 @@ The following hyperparameters were used during training:
 
 Parameters for the networks can be found in the model.py and ddpg_agent.py
 
+## Results
+![results](graph.png)
+
+I found out that a slight change to the algorithm's hyperparameters causes a substantial difference in the results.</br>
+After trying many combinations I discovered few interesting facts:
+* Giving the Actor slower learning rate helped the convergence
+* Higher batch sizes gave better performance (tried 32, 64, 128 and 256)
+* Using a higher soft update coefficient Tau helped the model to converge 75% faster
+* Batch normalization is very important
+
+To my humble opinion the model performance is not satisfactory, because it's dependency on some of the hyperparameters and that's his weakness.
+  
+
 ## Future Work
 
 Testing different algorithms - In the original paper the authors discuss many algorithms which may receive better results for this task including TRPO and PILCO as well as other algorithm that were tested for this task like PPO, A3C and D4PG
